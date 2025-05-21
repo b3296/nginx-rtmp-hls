@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  nginx-rtmp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nginx-rtmp
+    ports:
+      - "1935:1935"
+      - "8800:8800"
+    volumes:
+      - ./hls:/opt/hls
+      - ./nginx.conf:/usr/local/nginx/conf/nginx.conf
